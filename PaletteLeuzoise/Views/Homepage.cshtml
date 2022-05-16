@@ -1,0 +1,108 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<PaletteLeuzoise.Site.ViewModels.HomepageViewModel>
+
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+	Layout = "~/Views/Layout/_Master.cshtml";
+}
+
+<section class="intro">
+
+	<div class="intro__bg-img"></div>
+	
+	<div class="intro__frame">
+
+		<div class="intro__frame__content">
+
+			<div class="intro__club-name">
+				<h1>@Model.Title</h1>
+			</div>
+
+		</div>
+		
+
+	</div>
+
+</section>
+
+<div class="description-values">
+	<section class="description">
+
+		<div class="p-centered-container">
+
+			<div class="description__subtitle">
+				<h2>@Model.DescriptionTitle</h2>
+			</div>
+
+
+			<div class="description__content">@Html.Raw(@Model.DescriptionContent)</div>
+
+		</div>
+	</section>
+
+	<section class="values">
+		<div class="values__cards p-centered-container">
+
+				<article class="values__cards__card">
+					<a>
+						<div class="values__cards__card__image">
+							<img src="~/images/test-image.jpg" alt="Blé" />
+						</div>
+
+						<div class="values__cards__card__body">
+							<div class="values__cards__card__title">
+								<h3>Un titre de test</h3>
+							</div>
+
+							<div class="values__cards__card__content">
+								<p>Un test de texte qu'on pourrait mettre dans une card</p>
+							</div>
+						</div>
+					</a>
+				</article>
+
+				<article class="values__cards__card">
+					<a>
+						<div class="values__cards__card__image">
+							<img src="~/images/test-image.jpg" alt="Blé" />
+						</div>
+
+						<div class="values__cards__card__body">
+							<div class="values__cards__card__title">
+								<h3>Un titre de test</h3>
+							</div>
+
+							<div class="values__cards__card__content">
+								<p>Un test de texte qu'on pourrait mettre dans une card</p>
+							</div>
+						</div>
+					</a>
+				</article>
+
+				<article class="values__cards__card">
+					<a>
+						<div class="values__cards__card__image">
+							<img src="~/images/test-image.jpg" alt="Blé" />
+						</div>
+
+						<div class="values__cards__card__body">
+							<div class="values__cards__card__title">
+								<h3>Un titre de test</h3>
+							</div>
+
+							<div class="values__cards__card__content">
+								<p>Un test de texte qu'on pourrait mettre dans une card</p>
+							</div>
+						</div>
+					</a>
+				</article>
+
+			</div>
+	</section>
+</div>
+
+
+@section Styles {
+	<link rel="stylesheet" href="~/css/Pages/homepage.css" />
+}

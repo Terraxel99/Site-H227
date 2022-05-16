@@ -1,0 +1,18 @@
+﻿@import "../font.scss";
+@import "../common.scss";
+@import "../navbar.scss";
+@import "../footer.scss";
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+}

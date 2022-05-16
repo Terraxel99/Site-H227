@@ -1,0 +1,57 @@
+﻿.navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 3rem;
+    background-color: $primaryColor;
+
+    &__logo {
+        width: 90px;
+    }
+
+    &__links {
+        margin: 0;
+        padding-left: 3rem;
+        list-style-type: none;
+
+        &__link {
+            display: inline list-item;
+            margin-right: 2rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            > a {
+                padding: 1rem 2.5rem;
+                
+                font-size: large;
+                color: $blackColor;
+                text-decoration: none;
+
+                position: relative;
+
+                transition: color 150ms ease-in;
+
+                &:active,
+                &:hover {
+                    color: $whiteColor;
+
+                    &::after {
+                        content: '';
+                        
+                        width: 33%;
+                        position: absolute;
+                        
+                        border-bottom: solid 2px $secondaryColor;
+                        
+                        right: 40px;
+                        bottom: 10px;
+                        
+                        z-index: 1;
+                    }
+                }
+            }
+        }
+    }
+}

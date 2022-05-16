@@ -1,0 +1,17 @@
+.p-centered-container {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=common.css.map */

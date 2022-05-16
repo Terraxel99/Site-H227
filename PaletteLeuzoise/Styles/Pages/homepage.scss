@@ -1,0 +1,136 @@
+﻿@import "../variables.scss";
+
+.intro {
+    padding: 2rem 1rem;
+    position: relative;
+
+    &__bg-img {
+        background-image: url("/images/home-bg.jpg");
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: grayscale(75%);
+    }
+
+    &__frame {
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    &__club-name {
+        position: relative;
+        width: 75%;
+        
+        text-align: center;
+
+        padding: 4rem 0;
+        margin-left: auto;
+        margin-right: auto;
+
+        > h1 {
+            display: inline-block;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 4;
+
+            font-size: 3em;
+            font-weight: 300;
+        }
+    }
+}
+
+.description-values {
+    flex-grow: 1;
+}
+
+.description {
+    background-color: $lightGrayColor;
+    padding: 2rem 0;
+
+    &__subtitle {
+        position: relative;
+        background-color: $lightGrayColor;
+        text-align: center;
+
+        &::after {
+            content: '';
+            width: 100%;
+            border-bottom: solid 1px $blackColor;
+            position: absolute;
+            left: 0;
+            top: 50%;
+        }
+
+        > h2 {
+            font-weight: 300;
+            background-color: $lightGrayColor;
+            width: auto;
+            display: inline-block;
+            width: auto;
+            z-index: 3;
+            position: relative;
+            padding: 0 20px 0 20px;
+        }
+    }
+
+    &__content {
+        font-weight: 400;
+    }
+}
+
+.values {
+    &__cards {
+        display: flex;
+
+        &__card {
+            width: 350px;
+            margin: 0px auto;
+            background-color: $whiteColor;
+            box-shadow: 0px 5px 20px #999;
+            border-radius: 4px;
+
+            > a {
+                text-decoration: none;
+            }
+
+            &__image {
+                height: 235px;
+                overflow: hidden;
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+
+                > img {
+                    width: 100%;
+                    filter: grayscale(100%);
+                }
+            }
+
+            &__body {
+                text-align: center;
+                padding: 15px 20px;
+            }
+
+            &__title {
+            }
+
+            &__content {
+            }
+        }
+    }
+}

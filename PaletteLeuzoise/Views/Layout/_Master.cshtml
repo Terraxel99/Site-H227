@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/css/Layouts/layout.css" />
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="navigation">
+
+            <img class="navigation__logo" src="~/images/logo.png" alt="LOGO" />
+
+            <ul class="navigation__links">
+                <li class="navigation__links__link"><a href="#">Accueil</a></li>
+                <li class="navigation__links__link"><a href="#">Horaires</a></li>
+                <li class="navigation__links__link"><a href="#">Résultats</a></li>
+                <li class="navigation__links__link"><a href="#">Contact</a></li>
+                <li class="navigation__links__link"><a href="#">Galerie photos</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            @RenderBody()
+        </main>
+
+        <footer class="footer">
+            &copy; Dudziak Thomas @DateTime.UtcNow.Year
+        </footer>
+    </div>
+</body>
+</html>

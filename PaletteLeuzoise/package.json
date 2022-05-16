@@ -1,0 +1,23 @@
+{
+  "name": "PaletteLeuzoise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "postcss.config.js",
+  "scripts": {
+    "prebuild:css": "rm -rf wwwroot/css",
+    "build:css": "sass --style compressed --no-source-map Styles:wwwroot/css",
+    "postbuild:css": "postcss wwwroot/css/site.css --replace",
+    "prewatch": "rm -rf wwwroot/css",
+    "watch": "sass --watch Styles:wwwroot/css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "cssnano": "^5.1.7",
+    "cssnano-preset-advanced": "^5.3.3",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.51.0"
+  }
+}

@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.8" />
+        <PackageReference Include="Umbraco.Cms" Version="9.5.0" />
+        <PackageReference Include="xStatic" Version="2.0.3-beta" />
+    </ItemGroup>
+
+    <!-- Force Windows to use ICU. Otherwise Windows 10 2019H1+ will do it, but older Windows 10 and most, if not all, Windows Server editions will run NLS -->
+    <ItemGroup>
+      <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+      <PackageReference Include="xStatic.Core" Version="2.0.3-beta" />
+      <PackageReference Include="xStatic.Ftp" Version="2.0.3-beta" />
+      <PackageReference Include="xStatic.Git" Version="2.0.3-beta" />
+      <PackageReference Include="xStatic.Netlify" Version="2.0.3-beta" />
+      <PackageReference Include="xStatic.UmbracoContentApi" Version="2.0.3-beta" />
+      <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) Or $(RuntimeIdentifier.StartsWith('win')) Or ('$(RuntimeIdentifier)' == '' And !$([MSBuild]::IsOSPlatform('osx')))" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="wwwroot\css\" />
+      <Folder Include="wwwroot\js\" />
+      <Folder Include="wwwroot\images\" />
+    </ItemGroup>
+
+
+    <PropertyGroup>
+        <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+    </PropertyGroup>
+
+    <!-- Keep this as false if ModelsBuilder mode is InMemoryAuto -->
+    <PropertyGroup>
+        <RazorCompileOnBuild>false</RazorCompileOnBuild>
+        <RazorCompileOnPublish>false</RazorCompileOnPublish>
+    </PropertyGroup>
+
+    <!-- Ensure NPM modules -->
+	<Target Name="Install NPM modules" BeforeTargets="Build" Inputs="package-lock.json" Outputs="node_modules/.install-stamp">
+		<Exec Command="npm ci" Condition="'$(OS)' != 'Windows_NT'" />
+		<Exec Command="npm install" Condition="'$(OS)' == 'Windows_NT'" />
+		<Touch Files="node_modules/.install-stamp" AlwaysCreate="true" />
+	</Target>
+	
+	<!-- SASS config -->
+	<Target Name="Compile SCSS" BeforeTargets="CopyFilesToPublishDirectory">
+		<Exec Command="npm run build:css" />
+		<Copy SourceFiles="$(ProjectDir)wwwroot/css/site.css" DestinationFolder="$(PublishDir)wwwroot/css" />
+	</Target>
+
+</Project>
